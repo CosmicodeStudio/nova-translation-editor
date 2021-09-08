@@ -1,6 +1,6 @@
 <template>
   <div>
-    <heading class="mb-6">{{ title }}</heading>
+    <heading class="mb-6">{{ __(title) }}</heading>
 
     <div class="flex border-b-2 border-50">
       <div class="w-1/5 px-8 py-2">
@@ -27,7 +27,7 @@
               :class="currentGroup === group ? 'text-primary border-primary' : ' text-grey border-transparent'"
               class="no-underline border-b-2 uppercase tracking-wide font-bold text-s py-3 mx-2 px-3 inline-block"
               @click="currentGroup = group">
-            {{ group }}&nbsp;({{ Object.keys(translation).length }})
+            {{ __(group) }}&nbsp;({{ Object.keys(translation).length }})
           </a>
       </nav>
 
@@ -35,8 +35,8 @@
         <table class="table w-full">
           <thead>
           <tr>
-            <th class="text-left">Key</th>
-            <th class="text-left" v-for="lang in languages">Translation&nbsp;{{ lang }}</th>
+            <th class="text-left">{{__('Key')}}</th>
+            <th class="text-left" v-for="lang in languages">{{__('Translation')}}&nbsp;{{ lang }}</th>
           </tr>
           </thead>
           <tbody>
@@ -53,7 +53,7 @@
         </table>
 
         <div class="text-center p-3">
-          <button class="btn btn-default btn-primary mr-3" type="button" @click="save(currentGroup)">{{ __('Save') }} "{{ currentGroup }}"</button>
+          <button class="btn btn-default btn-primary mr-3" type="button" @click="save(currentGroup)">{{ __('Save') }} "{{ __(currentGroup) }}"</button>
         </div>
       </div>
     </card>
@@ -88,7 +88,7 @@ export default {
   },
   data: () => {
     return {
-      title: 'Traduções',
+      title: 'Translation Editor',
       apiUrl: '/nova-vendor/nova-translation-editor/',
       translations: null,
       changedTranslations: [],
