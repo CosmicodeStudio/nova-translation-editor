@@ -88,7 +88,7 @@ export default {
   },
   data: () => {
     return {
-      title: __('Translation Editor'),
+      title: 'Traduções',
       apiUrl: '/nova-vendor/nova-translation-editor/',
       translations: null,
       changedTranslations: [],
