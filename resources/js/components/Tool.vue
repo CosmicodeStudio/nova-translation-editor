@@ -53,20 +53,10 @@
         </table>
 
         <div class="text-center p-3">
-          <button class="btn btn-default btn-primary mr-3" type="button" @click="save(currentGroup)">{{ __('Save') }} "{{ __(currentGroup) }}"</button>
+          <button class="btn btn-default btn-primary mr-3" type="button" @click="save(currentGroup)">{{ __('Save') }}</button>
         </div>
       </div>
     </card>
-
-    <div class="text-right my-2" v-if="showTable">
-      <a class="btn btn-link dim cursor-pointer text-80 ml-auto mr-6 router-link-active nova-router-link nova-cancel-button"
-        @click="$router.go()">
-        {{ __('Cancel') }}
-      </a>
-      <button class="btn btn-default btn-primary" type="button" @click="save()">{{ __('Save all') }}</button>
-    </div>
-
-    <add-row-modal :group="currentGroup" :existing-keys="existingKeys" v-if="showNewModal" @close="showNewModal = false" @create="addRow"></add-row-modal>
 
     <div v-if="!showTable && loaded" class="toasted nova error">
       <p class="mb-2">You have not translation groups (aka translation file) activated in your `config/nova-translation-editor.php` config file.</p>
